@@ -6,6 +6,7 @@ export interface IUser {
     password: string;
     email: string;
     asignatura: string[];
+    denuncia: string[];
 }
 
 export interface IUserModel extends IUser, Document {}
@@ -15,7 +16,8 @@ const UserSchema: Schema = new Schema(
         name: { type: String, required: true },
         password: { type: String, required: true },
         email: { type: String, required: true, unique: true },
-        asignatura: { type: [Schema.Types.ObjectId], required: false, ref: 'asignatura' }
+        asignatura: { type: [Schema.Types.ObjectId], required: false, ref: 'asignatura' },
+        denuncia: {type: [Schema.Types.ObjectId], required: false, ref: 'denuncia'}
     },
     {
         versionKey: false
